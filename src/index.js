@@ -6,6 +6,7 @@ import store from "./redux/store";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
+import "antd/dist/antd.css";
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,4 +1,8 @@
-import { ADD_TODO, UPDATE_TODO } from "../constant-type/todoConstant";
+import {
+  ADD_TODO,
+  UPDATE_TODO,
+  DELETE_TODO,
+} from "../constant-type/todoConstant";
 import { todoState } from "../state/todoState";
 
 const todoReducer = (state = todoState, action) => {
@@ -11,6 +15,8 @@ const todoReducer = (state = todoState, action) => {
           ? { ...todo, completed: action.payload.completed }
           : todo
       );
+    case DELETE_TODO:
+      return state.filter((state) => state.id !== action.payload.id);
     default:
       return state;
   }

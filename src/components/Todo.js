@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import uuid from "uuid/dist/v4";
-import { add_todo, update_todo } from "../redux/actions/todoActions";
+import {
+  add_todo,
+  update_todo,
+  delete_todo,
+} from "../redux/actions/todoActions";
 import Card from "reactstrap/lib/Card";
 import CardBody from "reactstrap/lib/CardBody";
 import TodoForm from "./TodoForm";
@@ -48,8 +52,9 @@ function Todo() {
     dispatch(update_todo({ id: e.target.id, completed: e.target.checked }));
   };
 
-  console.log(newTodo);
-  console.log(todoList);
+  const handleDelete = (id) => {
+    dispatch(delete_todo({ id }));
+  };
 
   return (
     <React.Fragment>
@@ -62,7 +67,11 @@ function Todo() {
             handleChange={handleChange}
             handleSubmit={handleSubmit}
           />
-          <TodoList todoList={todoList} handleChecked={handleChecked} />
+          <TodoList
+            todoList={todoList}
+            handleChecked={handleChecked}
+            handleDelete={handleDelete}
+          />
         </CardBody>
       </Card>
     </React.Fragment>
