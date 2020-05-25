@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import uuid from "uuid/dist/v4";
-import { add_todo } from "../redux/actions/todoActions";
+import { add_todo, update_todo } from "../redux/actions/todoActions";
 import Card from "reactstrap/lib/Card";
 import CardBody from "reactstrap/lib/CardBody";
 import TodoForm from "./TodoForm";
@@ -45,8 +45,7 @@ function Todo() {
   };
 
   const handleChecked = (e) => {
-    console.log(e.target.checked);
-    console.log(e.target.id);
+    dispatch(update_todo({ id: e.target.id, completed: e.target.checked }));
   };
 
   console.log(newTodo);
