@@ -12,7 +12,7 @@ import ModalFooter from "reactstrap/lib/ModalFooter";
 function TodoForm(props) {
   return (
     <React.Fragment>
-      <Button color='primary' className='w-100' onClick={props.toggle}>
+      <Button color='primary' className='w-100 mb-3' onClick={props.toggle}>
         Create New Todo
       </Button>
       <Modal size='sm' isOpen={props.modal} toggle={props.toggle}>
