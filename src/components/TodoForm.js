@@ -16,7 +16,7 @@ function TodoForm(props) {
         Create New Todo
       </Button>
       <Modal size='sm' isOpen={props.modal} toggle={props.toggle}>
-        <Form>
+        <Form onSubmit={props.handleSubmit}>
           <ModalHeader>Form Create</ModalHeader>
           <ModalBody>
             <FormGroup>
