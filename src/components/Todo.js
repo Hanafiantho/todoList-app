@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Card from "reactstrap/lib/Card";
 import CardBody from "reactstrap/lib/CardBody";
 import TodoForm from "./TodoForm";
 
 function Todo() {
+  const todoList = useSelector((state) => state.todo);
   const [modal, setModal] = useState(false);
   const [newTodo, setNewTodo] = useState({
     id: "",
@@ -20,6 +22,7 @@ function Todo() {
   };
 
   console.log(newTodo);
+  console.log(todoList);
 
   return (
     <React.Fragment>
