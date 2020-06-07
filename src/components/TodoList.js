@@ -8,14 +8,14 @@ import Popconfirm from "antd/lib/popconfirm";
 
 function TodoList(props) {
   return (
-    <div className='px-3'>
+    <div className="px-3">
       {props.todoList.map((todo, key) => (
-        <Card key={key} className='my-2 px-2'>
-          <CardBody className='p-2'>
+        <Card key={key} className="my-2 px-2">
+          <CardBody className="p-2">
             <Row>
               <Col>
                 <CustomInput
-                  type='checkbox'
+                  type="checkbox"
                   id={todo.id}
                   label={todo.name}
                   className={todo.completed ? "text-muted" : "font-weight-bold"}
@@ -23,19 +23,17 @@ function TodoList(props) {
                   onChange={(e) => props.handleChecked(e)}
                 />
               </Col>
-              <Col sm='1' className='pl-0'>
+              <Col sm="1" className="pl-0">
                 <Popconfirm
-                  title='Are you sure ?'
-                  placement='left'
+                  title="Are you sure ?"
+                  placement="left"
                   onConfirm={() => props.handleDelete(todo.id)}
-                  okText='Yes'
-                  cancelText='No'
-                >
+                  okText="Yes"
+                  cancelText="No">
                   <div
                     style={{ cursor: "pointer" }}
-                    className='text-danger h5 text-right mb-0'
-                  >
-                    <i className='fa fa-trash'></i>
+                    className="text-danger h5 text-right mb-0">
+                    <i className="fa fa-trash"></i>
                   </div>
                 </Popconfirm>
               </Col>
@@ -47,4 +45,4 @@ function TodoList(props) {
   );
 }
 
-export default TodoList;
+export default React.memo(TodoList);

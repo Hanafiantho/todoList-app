@@ -12,29 +12,29 @@ import ModalFooter from "reactstrap/lib/ModalFooter";
 function TodoForm(props) {
   return (
     <React.Fragment>
-      <Button color='primary' className='w-100 mb-3' onClick={props.toggle}>
+      <Button color="primary" className="w-100 mb-3" onClick={props.toggle}>
         Create New Todo
       </Button>
-      <Modal size='sm' isOpen={props.modal} toggle={props.toggle}>
+      <Modal size="sm" isOpen={props.modal} toggle={props.toggle}>
         <Form onSubmit={props.handleSubmit}>
           <ModalHeader>Form Create</ModalHeader>
           <ModalBody>
             <FormGroup>
-              <Label className='font-weight-bold'>Todo</Label>
+              <Label className="font-weight-bold">Todo</Label>
               <Input
-                type='text'
-                name='name'
-                placeholder='input new todo'
+                type="text"
+                name="name"
+                placeholder="input new todo"
                 value={props.newTodo.name}
                 onChange={(e) => props.handleChange(e)}
               />
             </FormGroup>
           </ModalBody>
           <ModalFooter>
-            <Button size='sm' color='secondary' onClick={props.toggle}>
+            <Button size="sm" color="secondary" onClick={props.toggle}>
               Cancel
             </Button>
-            <Button size='sm' color='primary'>
+            <Button size="sm" color="primary">
               Create
             </Button>
           </ModalFooter>
@@ -44,4 +44,4 @@ function TodoForm(props) {
   );
 }
 
-export default TodoForm;
+export default React.memo(TodoForm);
